@@ -5,25 +5,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<style>
-	nav {background-color: #221C44;height: 52px;font-family: 'Roboto', sans-serif;color: #969DA2;
-		display: flex;align-items: center; justify-content: space-between;padding: 0 40px;font-size: 14px;line-height: 17px;position: relative;z-index: 2;}
+	nav {background-color:#221c446e;height: 52px;font-family: 'Roboto', sans-serif;color: yellow;border-radius: 9px;
+		display: flex;align-items: center; justify-content: space-between;padding: 0 40px;font-size: 16px;line-height: 17px;position: relative;z-index: 2;}
 	nav .rewind {margin-left: 28px;height: 16px;cursor: pointer;}
 	nav .play {margin-left: 24px;height: 24px;cursor: pointer;}
-	nav .play-icon:hover path, nav .play-icon:hover rect,
-	nav .rewind-icon:hover path,
-	nav .rewind-icon:hover rect,
-	nav .pause-icon:hover path,
-	nav .pause-icon:hover rect {fill: #566574;}
+	nav .play-icon:hover path, nav .play-icon:hover rect,nav .rewind-icon:hover path,nav .rewind-icon:hover rect, nav .pause-icon:hover path,nav .pause-icon:hover rect {fill: #566574;}
 	nav .pause-icon {display: none;}
 	nav .controls {display: flex;align-items: center;}
 	nav .social a {font-size: 24px;color: #A8B5C2;margin-left: 18px;}
 	nav .social a:hover {color: #566574;}
-	.loading {display: flex;justify-content: center;  position: absolute;left: 222px;top: 144px;z-index: 1;}
+	.loading {opacity: 0.5;transform: rotateX(-25deg)rotateY(25deg);background: aqua;padding: 6px;border-radius: 22px;justify-content: center;position: absolute;left: 88px;top: 188px;z-index: 1;}
+	.loading:hover{opacity: 1;}
+    transform: rotateX(-25deg) rotateY(25deg);}
 	.loading .progress {transition: width 0.3s linear;}
 	.notes {display: flex;height: 0;opacity: 0;transition: opacity 1s ease;justify-content: center;position: relative; z-index: 2;overflow: hidden;}
 	.notes .note {height: 132px;}
-	.notes .note > div {height: 100%;width: 32px;border-radius: 16px;background-color: #D8D8D8;color: #541F5D;
-		font-family: 'Roboto', sans-serif;font-size: 20px;font-weight: 700;line-height: 23px;
+	.notes .note > div {height: 100%;width: 32px;border-radius: 16px;background-color: #D8D8D8;color: #541F5D; font-family: 'Roboto', sans-serif;font-size: 20px;font-weight: 700;line-height: 23px;
 		text-align: center;box-sizing: border-box;padding: 5px 0;box-shadow: 0 7px 8px rgba(0, 0, 0, 0.16);}
 	.notes .note:hover div {background-color: #FF6545;color: #fff;}
 	.notes .note.key {height: 172px;}
@@ -36,18 +33,14 @@
 	.guitar.visible {transition: opacity 0.5s ease;}
 	.guitar img {width: 100%;display: block;pointer-events: none;}
 	.guitar .circle {background-image: url(switch.png);background-size: 100%;background-repeat: no-repeat;
-		width: 5vw;height: 5vw;min-width: 40px;min-height: 40px;border-radius: 50%;position: absolute;
-		right: 44.5%;top: 33.5%;cursor: pointer;}
+		width: 5vw;height: 5vw;min-width: 40px;min-height: 40px;border-radius: 50%;position: absolute; right: 44.5%;top: 33.5%;cursor: pointer;}
 	.guitar .circle.rock {background-position: 0 100%;}
 	.guitar .circle.rock:before {color: #FFF;}
 	.guitar .circle.rock:after {color: #C17CA4;}
-	.guitar .circle:before, .guitar .circle:after {font-weight: 700;font-size: 12px;line-height: 13px;text-align: center;
-		display: block;position: relative;transition: color 0.3s ease;}
+	.guitar .circle:before, .guitar .circle:after {font-weight: 700;font-size: 12px;line-height: 13px;text-align: center; display: block;position: relative;transition: color 0.3s ease;}
 	.guitar .circle:before {content: "ROCK";top: -14px;color: #C17CA4;}
 	.guitar .circle:after {content: "BLUES";top: 100%;color: #FFF;position: absolute;width: 100%;margin-top: 2px;}
-	body {
-		background:  linear-gradient(-180deg, #242150 5%, #572250 91%);
-		background-size: cover;background-position: center;margin: 0;
+	body {background:  linear-gradient(-180deg, #242150 5%, #572250 91%); background-size: cover;background-position: center;margin: 0;
 		-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;font-family: 'Roboto', sans-serif;}
 	body * {user-select: none;}
 	html,body {height: 100%;min-width: 726px;}
@@ -56,28 +49,6 @@
 	<script>if(document.location.search.match(/type=embed/gi)) {window.parent.postMessage("resize", "*");}</script>
 </head>
 <body translate="no">
-<nav>
-	<div class="controls">
-	Backing track: Shuffle Blues in A
-	<a class="rewind">
-		<svg width="26" height="16" viewBox="160 18 26 16" class="rewind-icon">
-		<path d="M173.3 26.143l12 6.857V18.778l-12 6.857v-6.857l-12.444 7.11L173.3 33v-6.857z" fill="#A8B5C3" fill-rule="evenodd" />
-	</svg>
-	</a>
-	<a class="play">
-	<svg width="21" height="24" viewBox="210 14 21 24" class="play-icon">
-	<path fill="#A8B5C2" fill-rule="evenodd" d="M230.677 25.815L210 37.63V14" />
-	</svg>
-	<svg width="21px" height="24px" viewBox="210 14 21 24" class="pause-icon">
-	<rect id="pause-1" fill="#A8B5C2" fill-rule="evenodd" x="210" y="14" width="7" height="24"></rect>
-	<rect id="pause-2" fill="#A8B5C2" fill-rule="evenodd" x="224" y="14" width="7" height="24"></rect>
-	</svg>
-	</a>
-	</div>
-	<div class="social">
-	<a href="https://github.com/gultekinmg/myMusicStudio" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-	</div>
-</nav>
 <div class="loading">
 	<svg width="468" height="153" viewBox="166 91 468 153" >
 		<defs>
@@ -92,13 +63,36 @@
 		<rect fill="#FF6545" x="0" y="0" width="0" height="100" mask="url(#b)" class="progress" />
 		 </g>
 		<text fill="#F2D9AE" font-family="Roboto-Bold, Roboto" font-size="24" font-weight="bold">
-		<tspan x="82" y="141">YOU CAN PLAY THE BLUES!</tspan>
+		<tspan x="82" y="141">YER THE BLUES!</tspan>
 		</text>
 		<path fill="#DDC08E" d="M0 111h468v2H0zM0 152h468v1H0z" />
 		<circle cx="30" cy="132" r="4" fill="#DDC08E" />
 		<circle cx="444" cy="132" r="4" fill="#DDC08E" />
 		</g>
 	</svg>
+	<br>
+	<nav>
+		<div class="controls">
+		Backing track: Shuffle Blues in A
+		<a class="rewind">
+			<svg width="26" height="16" viewBox="160 18 26 16" class="rewind-icon">
+			<path d="M173.3 26.143l12 6.857V18.778l-12 6.857v-6.857l-12.444 7.11L173.3 33v-6.857z" fill="#A8B5C3" fill-rule="evenodd" />
+		</svg>
+		</a>
+		<a class="play">
+		<svg width="21" height="24" viewBox="210 14 21 24" class="play-icon">
+		<path fill="#A8B5C2" fill-rule="evenodd" d="M230.677 25.815L210 37.63V14" />
+		</svg>
+		<svg width="21px" height="24px" viewBox="210 14 21 24" class="pause-icon">
+		<rect id="pause-1" fill="#A8B5C2" fill-rule="evenodd" x="210" y="14" width="7" height="24"></rect>
+		<rect id="pause-2" fill="#A8B5C2" fill-rule="evenodd" x="224" y="14" width="7" height="24"></rect>
+		</svg>
+		</a>
+		</div>
+		<div class="social">
+		<a href="https://github.com/gultekinmg/myMusicStudio" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+		</div>
+	</nav>
 </div>
 <div class="notes" style="height: auto;opacity: 1;position: absolute;top: 388px;left: 52%;">
 	<div class="note" data-note="0"><div>G<span>4</span></div></div>
@@ -117,42 +111,72 @@
 	<div class="note" data-note="13"><div>C<span>7</span></div></div>
 	<div class="note" data-note="14"><div>D<span>7</span></div></div>
 </div>
-<div class="guitar"><div class="circle"></div><img src="guitar.png"></div>
-<audio src="Shuffle_A.mp3"></audio>
+<div class="guitar"><div class="circle"></div><img src="guitar.png">
+<audio id="audioTrack"src="Shuffle_A.mp3"></audio>
+<div id='nonsense'>
+<audio class="scores" src="sounds/G4.mp3"></audio>
+<audio class="scores" src="sounds/A4.mp3"></audio>
+<audio class="scores" src="sounds/C5.mp3"></audio>
+<audio class="scores" src="sounds/D5.mp3"></audio>
+<audio class="scores" src="sounds/E5.mp3"></audio>
+<audio class="scores" src="sounds/G5.mp3"></audio>
+<audio class="scores" src="sounds/A5.mp3"></audio>
+<audio class="scores" src="sounds/C6.mp3"></audio>
+<audio class="scores" src="sounds/D6.mp3"></audio>
+<audio class="scores" src="sounds/D%236.mp3"></audio>
+<audio class="scores" src="sounds/E6.mp3"></audio>
+<audio class="scores" src="sounds/G6.mp3"></audio>
+<audio class="scores" src="sounds/A6.mp3"></audio>
+<audio class="scores" src="sounds/C7.mp3"></audio>
+<audio class="scores" src="sounds/D7.mp3"></audio>
+<audio class="scores" src="sounds/d_G4.mp3"></audio>
+<audio class="scores" src="sounds/d_A4.mp3"></audio>
+<audio class="scores" src="sounds/d_C5.mp3"></audio>
+<audio class="scores" src="sounds/d_D5.mp3"></audio>
+<audio class="scores" src="sounds/d_E5.mp3"></audio>
+<audio class="scores" src="sounds/d_G5.mp3"></audio>
+<audio class="scores" src="sounds/d_A5.mp3"></audio>
+<audio class="scores" src="sounds/d_C6.mp3"></audio>
+<audio class="scores" src="sounds/d_D6.mp3"></audio>
+<audio class="scores" src="sounds/d_D%236.mp3"></audio>
+<audio class="scores" src="sounds/d_E6.mp3"></audio>
+<audio class="scores" src="sounds/d_G6.mp3"></audio>
+<audio class="scores" src="sounds/d_A6.mp3"></audio>
+<audio class="scores" src="sounds/d_C7.mp3"></audio>
+<audio class="scores" src="sounds/d_D7.mp3"></audio>
+</div>
+</div>
 <script id="rendered-js">
-		class Guitar {constructor(context, buffer) {this.context = context;  this.buffer = buffer;}
+		///
+		class Guitar {constructor(AC, buffer) {this.AC = AC;  this.buffer = buffer;}
 			setup() {
-				this.gainNode = this.context.createGain();
-				this.source = this.context.createBufferSource();
+				this.gainNode = this.AC.createGain();
+				this.source = this.AC.createBufferSource();
 				this.source.buffer = this.buffer;
 				this.source.connect(this.gainNode);
-				this.gainNode.connect(this.context.destination);
-				this.gainNode.gain.setValueAtTime(0.8, this.context.currentTime);
+				this.gainNode.connect(this.AC.destination);
+				this.gainNode.gain.setValueAtTime(0.8, this.AC.currentTime);
 			}
-			play() { this.setup(); this.source.start(this.context.currentTime);}
-			stop() { var ct = this.context.currentTime + 0.7;	this.gainNode.gain.exponentialRampToValueAtTime(0.001, ct);  this.source.stop(ct);}}
-		class Buffer {constructor(context, urls) {this.context = context; this.urls = urls; this.buffer = [];}
-			loadSound(url, index) {///XMLHttpRequest
-				let request = new XMLHttpRequest();
-				request.open('get', url, true);
-				request.responseType = 'arraybuffer';
-				let thisBuffer = this;
+			play() { this.setup(); this.source.start(this.AC.currentTime);}
+			stop() { var ct = this.AC.currentTime + 0.7;	this.gainNode.gain.exponentialRampToValueAtTime(0.001, ct);  this.source.stop(ct);}}
+		class BUFFER {constructor(AC, urls) {this.AC = AC; this.urls = urls; this.buffer = [];}
+			loadSound(url, index) { let request = new XMLHttpRequest(); request.open('get', url, true); request.responseType = 'arraybuffer';
+				let thisBUFFER = this;
 				request.onload = function () {// Safari doesn't support promise based syntax					
-					thisBuffer.context.
-					decodeAudioData(request.response, function (buffer) {
-						thisBuffer.buffer[index] = buffer;
-						updateProgress(thisBuffer.urls.length);
-						if (index == thisBuffer.urls.length - 1) {thisBuffer.loaded();}
+					thisBUFFER.AC.decodeAudioData(request.response, function (buffer) {
+						thisBUFFER.buffer[index] = buffer;updateProgress(thisBUFFER.urls.length);
+						if (index == thisBUFFER.urls.length - 1) {thisBUFFER.loaded();}
 					});
 				};
 				request.send();
 			}
-			getBuffer() {this.urls.forEach((url, index) => {this.loadSound(url, index);});}
+			getBUFFER() {this.urls.forEach((url, index) => {this.loadSound(url, index);});}
 			loaded() {loaded = true;
-				document.querySelector('.loading').style.opacity = 0.6; document.querySelector('.loading').style.height = 0;
+				//document.querySelector('.loading').style.opacity = 0.6; document.querySelector('.loading').style.height = 0;
 				document.querySelector('.notes').style.opacity = 1;document.querySelector('.notes').style.height = "auto";
 			}
 			getSound(index) {return this.buffer[index];}}
+		///
 		let progressBar = document.querySelector('.progress');
 		let iteration = 0;
 		function updateProgress(total) {progressBar.style.width = ++iteration / total * 100 + '%';}
@@ -160,59 +184,31 @@
 		let preset = 0;
 		let loaded = false;
 		function playGuitar() {let index = parseInt(this.dataset.note) + preset;
-			guitar = new Guitar(context, buffer.getSound(index));
+			guitar = new Guitar(AC, buffer.getSound(index));
 			guitar.play();
 		}
 		function stopGuitar() {	guitar.stop();}
-		let context = new (window.AudioContext || window.webkitAudioContext)();
-		let sounds = [
-									'sounds/G4.mp3',
-									'sounds/A4.mp3',
-									'sounds/C5.mp3',
-									'sounds/D5.mp3',
-									'sounds/E5.mp3',
-									'sounds/G5.mp3',
-									'sounds/A5.mp3',
-									'sounds/C6.mp3',
-									'sounds/D6.mp3',
-									'sounds/D%236.mp3',
-									'sounds/E6.mp3',
-									'sounds/G6.mp3',
-									'sounds/A6.mp3',
-									'sounds/C7.mp3',
-									'sounds/D7.mp3',
-									'sounds/d_G4.mp3',
-									'sounds/d_A4.mp3',
-									'sounds/d_C5.mp3',
-									'sounds/d_D5.mp3',
-									'sounds/d_E5.mp3',
-									'sounds/d_G5.mp3',
-									'sounds/d_A5.mp3',
-									'sounds/d_C6.mp3',
-									'sounds/d_D6.mp3',
-									'sounds/d_D%236.mp3',
-									'sounds/d_E6.mp3',
-									'sounds/d_G6.mp3',
-									'sounds/d_A6.mp3',
-									'sounds/d_C7.mp3',
-									'sounds/d_D7.mp3'];
-		let buffer = new Buffer(context, sounds);
-		let guitarSound = buffer.getBuffer();
+		///
+		let AC = new (window.AudioContext || window.webkitAudioContext)();
+		//let snotess = document.querySelectorAll('.scores'), scores=[]; for(i=0;i<snotess.length;i++){scores.push(snotess[i].src);console.log(i,scores[i]);}
+		let sounds = ['sounds/G4.mp3','sounds/A4.mp3','sounds/C5.mp3','sounds/D5.mp3','sounds/E5.mp3','sounds/G5.mp3','sounds/A5.mp3','sounds/C6.mp3','sounds/D6.mp3','sounds/D%236.mp3','sounds/E6.mp3','sounds/G6.mp3','sounds/A6.mp3','sounds/C7.mp3','sounds/D7.mp3','sounds/d_G4.mp3','sounds/d_A4.mp3','sounds/d_C5.mp3','sounds/d_D5.mp3','sounds/d_E5.mp3','sounds/d_G5.mp3','sounds/d_A5.mp3','sounds/d_C6.mp3','sounds/d_D6.mp3','sounds/d_D%236.mp3','sounds/d_E6.mp3','sounds/d_G6.mp3','sounds/d_A6.mp3','sounds/d_C7.mp3','sounds/d_D7.mp3'];
+		let buffer = new BUFFER(AC, sounds); console.log(buffer);
+		let guitarSound = buffer.getBUFFER();
 		let buttons = document.querySelectorAll('.notes .note');
 		buttons.forEach(button => {
 			button.addEventListener('mouseenter', playGuitar.bind(button));
 			button.addEventListener('mouseleave', stopGuitar);
 		});
-		let audio = document.querySelector('audio');
+		let audio = document.querySelector('#audioTrack');
 		let play = document.querySelector('.play');
 		let rewind = document.querySelector('.rewind');
 		let circle = document.querySelector('.circle');
-		audio.addEventListener('pause', pauseTrack);
-		audio.addEventListener('play', playTrack);
-		play.addEventListener('click', () => {if (audio.paused) {audio.play();	playTrack();} else {audio.pause();pauseTrack();}});
-		rewind.addEventListener('click', () => {audio.currentTime = 0;});
-		circle.addEventListener('click', () => {preset = preset == 0 ? 15 : 0;circle.classList.toggle('rock');});
-		audio.addEventListener('ended', () => {pauseTrack();});
+			audio.addEventListener('pause', pauseTrack);
+			audio.addEventListener('play', playTrack);
+			play.addEventListener('click', () => {if (audio.paused) {audio.play();	playTrack();} else {audio.pause();pauseTrack();}});
+			rewind.addEventListener('click', () => {audio.currentTime = 0;});
+			circle.addEventListener('click', () => {preset = preset == 0 ? 15 : 0;circle.classList.toggle('rock');});
+			audio.addEventListener('ended', () => {pauseTrack();});
 		function playTrack() {play.querySelector('.pause-icon').style.display = "block";play.querySelector('.play-icon').style.display = "none";}
 		function pauseTrack() {play.querySelector('.pause-icon').style.display = "none";play.querySelector('.play-icon').style.display = "block";}
     </script>
